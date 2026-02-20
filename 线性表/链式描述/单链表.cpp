@@ -7,6 +7,7 @@ typedef struct LNode
     int data;
     LNodeLink* next;
 }LNodeLink;
+//基本操作
 
 //头插法    
 void CreateListHead(LNodeLink* &L,int n,int arr[]){
@@ -39,7 +40,6 @@ void CreateListTail(LNodeLink* &L,int n,int arr[]){
     }
     tail->next=nullptr;
 }
-
 
 //插入到第n个位置
 void InsertNode(LNodeLink* &L,int n,int x){
