@@ -40,7 +40,7 @@ void CreateListTail(LNodeLink* &L,int n,int arr[]){
     }
     tail->next=nullptr;
 }
-
+//易错!
 //插入到第n个位置
 void InsertNode(LNodeLink* &L,int n,int x){
     LNodeLink* pre = L;
