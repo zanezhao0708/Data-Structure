@@ -12,12 +12,10 @@ bool GetElem(LinkList L,int i,int j){//查找节点
     LinkList p = L->next;
     j = 1;
     while (j != i)
-    {
-        
+    {   
         if(!p)return 0 ;
         j++;
         p = p -> next;
-
     }
     return 1 ;
 }
