@@ -1,17 +1,27 @@
+//由于计算顺序和输出顺序相反及先进后出，考虑使用栈结构
+
 #include <stdio.h>
 #include <stdbool.h>
-#include <cstdlib>  
-//栈的链式存储通常不采用带头节点的单链表表示，
-//因为栈的操作只涉及到栈顶元素，使用带头节点的单链表会增加不必要的空间开销和操作复杂度。
-
-//栈的插入与删除只在表头进行。
+#include <cstdlib> 
 
 typedef struct StackNode{
-
     int data;
     StackPtr next;
 }StackNode,*StackPtr;
 
+//假设为10进制->2进制
+void solution (StackPtr S,int e){
+    InitStack(S);
+    while(e){
+        StackPush(S,e%2);
+        e=e/2;
+    }
+    int i;
+    while(!StackEmpty(S))
+        StackPop(S,i);
+        printf("%d",i);
+}
+ 
 
 bool InitStack(StackPtr &S){
     S = NULL;
@@ -38,7 +48,7 @@ bool StackPop(StackPtr &S,int &e){
     return 1;
 }
 
-int GetElem(StackPtr S){
-    if(!S)return 0;
-    return S->data;
+bool StackEmpty(StackPtr S){
+    if(S == NULL)return 1;
+    else return 0;
 }
