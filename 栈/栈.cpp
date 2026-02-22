@@ -34,6 +34,9 @@ bool GetStackTop(stack S,int &e){
 bool PushStack(stack &S ,int e){ 
     if(S.top-S.base >=S.stacksize){
         int newstacksize = S.stacksize+STACK_INIT_SIZE;
+        //realloc函数会尝试扩展原有内存块，
+        //如果无法扩展，会在其他位置分配新的内存块，将原有数据复制到新内存块中，
+        //最后释放原有内存块。
         int* newBase = (int*)realloc(S.base, newstacksize * sizeof(int));
         if(!newBase)return -1;
         S.base = newBase;
@@ -43,5 +46,11 @@ bool PushStack(stack &S ,int e){
     
     *(S.top)=e;
     S.top++;
+    return 1;
+}
+bool Pullstack(stack &S,int &e){
+    if(S.top == S.base)return 0;
+    S.top--;
+    e = *(S.top);
     return 1;
 }

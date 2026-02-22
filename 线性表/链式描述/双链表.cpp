@@ -31,3 +31,19 @@ void   CreateListHead(DNodeLink* &L,int n, int arr[]){
     }
 
 }
+
+void CreateListTail(DNodeLink* &L,int n,int arr[]){
+    L = (DNodeLink*)malloc(sizeof(DNodeLink));
+    L->next = nullptr;
+    L->prior = nullptr;
+    DNodeLink* tail = L;
+    for (int i = 0; i < n; i++)
+    {
+        DNodeLink* s = (DNodeLink*)malloc(sizeof(DNodeLink));
+        s->data = arr[i];
+        tail->next = s;
+        s->prior = tail;
+        tail = s;
+    }
+    tail->next=nullptr;
+}
