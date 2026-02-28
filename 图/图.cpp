@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <cstdlib>
 #define MAXSIZE 30
-
+// 比较难
 //邻接表
 typedef struct AdjArc
 {
