@@ -10,7 +10,7 @@ typedef struct AdjArc
     struct AdjArc* next;
     int info;
 }AdjArc;
-
+//d
 typedef struct AdjNode
 {
     int data;
